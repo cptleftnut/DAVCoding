@@ -1,5 +1,5 @@
 name: 🐞 Bug Report
-description: Report a bug or unexpected behavior in the GitHub Copilot CLI.
+description: Report a bug or unexpected behavior in the DAVCoding CLI.
 type: Bug
 labels:
   - "triage"
@@ -18,9 +18,9 @@ body:
     id: version
     attributes:
       label: Affected version
-      description: The version of the `copilot` where you encountered the bug (if applicable).
+      description: The version of the `davcoding` where you encountered the bug (if applicable).
       placeholder: |
-        Paste output from `copilot --version`
+        Paste output from `davcoding --version`
   - type: textarea
     id: steps_to_reproduce
     attributes:

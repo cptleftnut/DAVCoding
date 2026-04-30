@@ -1,35 +1,35 @@
-GitHub Copilot CLI License
+DAVCoding CLI License
 
 1. License Grant
-Subject to the terms of this License, GitHub grants you a non‑exclusive, non‑transferable, royalty‑free license to install and run copies of the GitHub Copilot CLI (the “Software”). Subject to Section 2 below, GitHub also grants you the right to reproduce and redistribute unmodified copies of the Software as part of an application or service.
+Subject to the terms of this License, DAVCoding grants you a non‑exclusive, non‑transferable, royalty‑free license to install and run copies of DAVCoding CLI (the "Software"). Subject to Section 2 below, DAVCoding also grants you the right to reproduce and redistribute unmodified copies of the Software as part of an application or service.
 
 2. Redistribution Rights and Conditions
 You may reproduce and redistribute the Software only in accordance with all of the following conditions:
 The Software is distributed only in unmodified form;
 The Software is redistributed solely as part of an application or service that provides material functionality beyond the Software itself;
 The Software is not distributed on a standalone basis or as a primary product;
-You include a copy of this License and retain all applicable copyright, trademark, and attribution notices; and
-Your application or service is licensed independently of the Software.
-Nothing in this License restricts your choice of license for your application or service, including distribution under an open source license. This License applies solely to the Software and does not modify or supersede the license terms governing your application or its source code.
+The Software is not used to compete directly with DAVCoding CLI or any DAVCoding product or service;
+Each copy of the Software is accompanied by a copy of this License;
+You do not use the name, logo, or trademarks of DAVCoding to endorse or promote products derived from or incorporating the Software without the prior written consent of DAVCoding.
 
-3. Scope Limitations
-This License does not grant you the right to:
-Modify, adapt, translate, or create derivative works of the Software;
-Redistribute the Software except as expressly permitted in Section 2;
-Remove, alter, or obscure any proprietary notices included in the Software; or
-Use GitHub trademarks, logos, or branding except as necessary to identify the Software.
+3. Restrictions
+Except as expressly permitted in Section 1 and Section 2, you may not:
+(a) modify, translate, adapt, or create derivative works based upon the Software;
+(b) reverse engineer, disassemble, decompile, or otherwise attempt to derive source code of the Software;
+(c) sublicense, sell, resell, transfer, assign, or otherwise commercially exploit or make available to any third party the Software on a standalone basis;
+(d) use the Software to develop a competing product or service.
 
-4. Reservation of Rights
-GitHub and its licensors retain all right, title, and interest in and to the Software. All rights not expressly granted by this License are reserved.
+4. Intellectual Property
+DAVCoding retains all right, title, and interest in and to the Software, including all intellectual property rights. No rights are granted except those expressly set forth in this License.
 
-5. Disclaimer of Warranty
-THE SOFTWARE IS PROVIDED “AS IS,” WITHOUT WARRANTY OF ANY KIND, EXPRESS, IMPLIED, OR STATUTORY, INCLUDING WITHOUT LIMITATION WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON‑INFRINGEMENT. THE ENTIRE RISK ARISING OUT OF USE OF THE SOFTWARE REMAINS WITH YOU.
+5. Disclaimer of Warranties
+THE SOFTWARE IS PROVIDED "AS IS," WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE, AND NON-INFRINGEMENT. DAVCODING DOES NOT WARRANT THAT THE SOFTWARE WILL MEET YOUR REQUIREMENTS OR THAT THE OPERATION OF THE SOFTWARE WILL BE UNINTERRUPTED OR ERROR‑FREE.
 
 6. Limitation of Liability
-TO THE MAXIMUM EXTENT PERMITTED BY LAW, IN NO EVENT SHALL GITHUB OR ITS LICENSORS BE LIABLE FOR ANY DAMAGES ARISING OUT OF OR RELATING TO THIS LICENSE OR THE USE OR DISTRIBUTION OF THE SOFTWARE, WHETHER IN CONTRACT, TORT, OR OTHERWISE.
+IN NO EVENT SHALL DAVCODING BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THE SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 7. Termination
-This License terminates automatically if you fail to comply with its terms. Upon termination, you must cease all use and distribution of the Software.
+This License is effective until terminated. Your rights under this License will terminate automatically without notice if you fail to comply with any term of this License. Upon termination, you must cease all use and destroy all copies of the Software.
 
-8. Notice Regarding GitHub Services (Informational Only)
-Use of the Software may require access to GitHub services and is subject to the applicable GitHub Terms of Service and GitHub Copilot terms. This License governs only rights related to the Software and does not grant any rights to access or use GitHub services.
+8. Governing Law
+This License shall be governed by the laws of Denmark, without regard to its conflict of law provisions.

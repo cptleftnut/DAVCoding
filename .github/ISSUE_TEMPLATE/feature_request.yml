@@ -1,5 +1,5 @@
 name: ⭐️ Feature Request
-description: Suggest a new feature or improvement for the GitHub Copilot CLI.
+description: Suggest a new feature or improvement for the DAVCoding CLI.
 type: Feature
 labels:
   - "triage"
@@ -18,7 +18,7 @@ body:
     id: description
     attributes:
       label: Proposed solution
-      description: How will it benefit GitHub Copilot CLI and its users?
+      description: How will it benefit DAVCoding CLI and its users?
   - type: textarea
     id: examples
     attributes:

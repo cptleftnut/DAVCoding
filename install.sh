@@ -1,15 +1,15 @@
 #!/usr/bin/env bash
 set -e
 
-# GitHub Copilot CLI Installation Script
-# Usage: curl -fsSL https://gh.io/copilot-install | bash
-#    or: wget -qO- https://gh.io/copilot-install | bash
+# DAVCoding CLI Installation Script
+# Usage: curl -fsSL https://raw.githubusercontent.com/cptleftnut/DAVCoding/main/install.sh | bash
+#    or: wget -qO- https://raw.githubusercontent.com/cptleftnut/DAVCoding/main/install.sh | bash
 # Use | sudo bash to run as root and install to /usr/local/bin
 # Export PREFIX to install to $PREFIX/bin/ directory (default: /usr/local for
 # root, $HOME/.local for non-root), e.g., export PREFIX=$HOME/custom to install
 # to $HOME/custom/bin
 
-echo "Installing GitHub Copilot CLI..."
+echo "Installing DAVCoding CLI..."
 
 # Detect platform
 case "$(uname -s || echo "")" in
@@ -18,10 +18,10 @@ case "$(uname -s || echo "")" in
   *)
     if command -v winget >/dev/null 2>&1; then
       echo "Windows detected. Installing via winget..."
-      winget install GitHub.Copilot
+      winget install DAVCoding.CLI
       exit $?
     else
-      echo "Error: Windows detected but winget not found. Please see https://gh.io/install-copilot-readme" >&2
+      echo "Error: Windows detected but winget not found. Please see https://github.com/cptleftnut/DAVCoding" >&2
       exit 1
     fi
     ;;
@@ -37,17 +37,17 @@ esac
 # Set up authentication for GitHub requests if GITHUB_TOKEN is available
 CURL_AUTH=()
 WGET_AUTH=()
-GIT_REMOTE="https://github.com/github/copilot-cli"
+GIT_REMOTE="https://github.com/cptleftnut/DAVCoding"
 if [ -n "$GITHUB_TOKEN" ]; then
   CURL_AUTH=(-H "Authorization: token $GITHUB_TOKEN")
   WGET_AUTH=(--header="Authorization: token $GITHUB_TOKEN")
-  GIT_REMOTE="https://x-access-token:${GITHUB_TOKEN}@github.com/github/copilot-cli"
+  GIT_REMOTE="https://x-access-token:${GITHUB_TOKEN}@github.com/cptleftnut/DAVCoding"
 fi
 
 # Determine download URL based on VERSION
 if [ "${VERSION}" = "latest" ] || [ -z "$VERSION" ]; then
-  DOWNLOAD_URL="https://github.com/github/copilot-cli/releases/latest/download/copilot-${PLATFORM}-${ARCH}.tar.gz"
-  CHECKSUMS_URL="https://github.com/github/copilot-cli/releases/latest/download/SHA256SUMS.txt"
+  DOWNLOAD_URL="https://github.com/cptleftnut/DAVCoding/releases/latest/download/davcoding-${PLATFORM}-${ARCH}.tar.gz"
+  CHECKSUMS_URL="https://github.com/cptleftnut/DAVCoding/releases/latest/download/SHA256SUMS.txt"
 elif [ "${VERSION}" = "prerelease" ]; then
   # Get the latest prerelease tag
   if ! command -v git >/dev/null 2>&1; then
@@ -60,23 +60,23 @@ elif [ "${VERSION}" = "prerelease" ]; then
     exit 1
   fi
   echo "Latest prerelease version: $VERSION"
-  DOWNLOAD_URL="https://github.com/github/copilot-cli/releases/download/${VERSION}/copilot-${PLATFORM}-${ARCH}.tar.gz"
-  CHECKSUMS_URL="https://github.com/github/copilot-cli/releases/download/${VERSION}/SHA256SUMS.txt"
+  DOWNLOAD_URL="https://github.com/cptleftnut/DAVCoding/releases/download/${VERSION}/davcoding-${PLATFORM}-${ARCH}.tar.gz"
+  CHECKSUMS_URL="https://github.com/cptleftnut/DAVCoding/releases/download/${VERSION}/SHA256SUMS.txt"
 else
   # Prefix version with 'v' if not already present
   case "$VERSION" in
     v*) ;;
     *) VERSION="v$VERSION" ;;
   esac
-  DOWNLOAD_URL="https://github.com/github/copilot-cli/releases/download/${VERSION}/copilot-${PLATFORM}-${ARCH}.tar.gz"
-  CHECKSUMS_URL="https://github.com/github/copilot-cli/releases/download/${VERSION}/SHA256SUMS.txt"
+  DOWNLOAD_URL="https://github.com/cptleftnut/DAVCoding/releases/download/${VERSION}/davcoding-${PLATFORM}-${ARCH}.tar.gz"
+  CHECKSUMS_URL="https://github.com/cptleftnut/DAVCoding/releases/download/${VERSION}/SHA256SUMS.txt"
 fi
 echo "Downloading from: $DOWNLOAD_URL"
 
 # Download and extract with error handling
 TMP_DIR="$(mktemp -d)"
 trap 'rm -rf -- "$TMP_DIR"' EXIT
-TMP_TARBALL="$TMP_DIR/copilot-${PLATFORM}-${ARCH}.tar.gz"
+TMP_TARBALL="$TMP_DIR/davcoding-${PLATFORM}-${ARCH}.tar.gz"
 if command -v curl >/dev/null 2>&1; then
   curl -fsSL "${CURL_AUTH[@]}" "$DOWNLOAD_URL" -o "$TMP_TARBALL"
 elif command -v wget >/dev/null 2>&1; then
@@ -135,15 +135,15 @@ if ! mkdir -p "$INSTALL_DIR"; then
 fi
 
 # Install binary
-if [ -f "$INSTALL_DIR/copilot" ]; then
-  echo "Notice: Replacing copilot binary found at $INSTALL_DIR/copilot."
+if [ -f "$INSTALL_DIR/davcoding" ]; then
+  echo "Notice: Replacing davcoding binary found at $INSTALL_DIR/davcoding."
 fi
 tar -xz -C "$INSTALL_DIR" -f "$TMP_TARBALL"
-chmod +x "$INSTALL_DIR/copilot"
-echo "✓ GitHub Copilot CLI installed to $INSTALL_DIR/copilot"
+chmod +x "$INSTALL_DIR/davcoding"
+echo "✓ DAVCoding CLI installed to $INSTALL_DIR/davcoding"
 
 # Check if installed binary is accessible
-if ! command -v copilot >/dev/null 2>&1; then
+if ! command -v davcoding >/dev/null 2>&1; then
   echo ""
   echo "Notice: $INSTALL_DIR is not in your PATH"
 
@@ -160,7 +160,7 @@ if ! command -v copilot >/dev/null 2>&1; then
         RC_FILE="$HOME/.profile"
       fi
       ;;
-    fish) RC_FILE="${XDG_CONFIG_HOME:-$HOME/.config}/fish/conf.d/copilot.fish" ;;
+    fish) RC_FILE="${XDG_CONFIG_HOME:-$HOME/.config}/fish/conf.d/davcoding.fish" ;;
     *) RC_FILE="$HOME/.profile" ;;
   esac
 
@@ -189,8 +189,8 @@ if ! command -v copilot >/dev/null 2>&1; then
 
   echo ""
   echo "Installation complete! To get started, run:"
-  echo "  $PATH_LINE && copilot help"
+  echo "  $PATH_LINE && davcoding help"
 else
   echo ""
-  echo "Installation complete! Run 'copilot help' to get started."
+  echo "Installation complete! Run 'davcoding help' to get started."
 fi

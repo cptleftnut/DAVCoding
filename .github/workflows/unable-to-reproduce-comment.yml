@@ -29,15 +29,15 @@ jobs:
             are the best.
               - Be as specific as possible; include as much detail as you can. 
               - If not already provided, include:
-                  - the version of Copilot CLI you are using. 
+                  - the version of DAVCoding CLI you are using. 
                   - the operating system you are using
                   - any environment factors you can think of.
                   - any custom configuration you are using.
                   - a log file from the day you experienced the issue (find log
-            files via `~/.copilot/logs`.
+            files via `~/.davcoding/logs`.
               - If relevant and can be shared, provide the repository or code you
             are using.
-             - If relevant and can be shared, provide the session files (find session files via `~/.copilot/history-session-state`).
+             - If relevant and can be shared, provide the session files (find session files via `~/.davcoding/history-session-state`).
             
             Note: This is a public repository. Please do not include any sensitive or
             private information in your issue.

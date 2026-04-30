@@ -11,7 +11,7 @@
 ## 1.0.37 - 2026-04-27
 
 - Location-based permission persistence is now enabled by default, so approvals carry over across sessions for the same directory
-- Add `copilot completion <bash|zsh|fish>` subcommand to generate static shell completion scripts for subcommands, flags, and known choice values
+- Add `davcoding completion <bash|zsh|fish>` subcommand to generate static shell completion scripts for subcommands, flags, and known choice values
 - Press `s` in the session picker to cycle sort order: relevance, last used, created, or name
 - ACP model config options now include description and metadata for clients using the configOptions API
 - Model and effort change notification no longer appears when re-selecting the same model or effort level
@@ -24,16 +24,16 @@
 ## 1.0.36 - 2026-04-24
 
 - Subcommand picker shows a selection indicator (❯) next to the highlighted item
-- Clearer error message with a direct link when multiple Copilot licenses are detected
+- Clearer error message with a direct link when multiple DAVCoding licenses are detected
 - Fixed an issue where preToolUse.matcher was ignored. After upgrade, hooks with matcher run only for tool names that fully match the regex.
-- `/keep-alive` is available without experimental mode to prevent system sleep while Copilot CLI is active
+- `/keep-alive` is available without experimental mode to prevent system sleep while DAVCoding CLI is active
 - /remote command shows current status and supports /remote on and /remote off to toggle remote control
 - Disabled skills no longer appear in the slash command list
 - Add a 'changes' statusline toggle to show added/removed line counts for the session
 - Custom instruction files in .gitignored directories (e.g., .github/instructions/) now load correctly
 - Require double Esc to cancel in-flight work, preventing accidental interruptions
 - Saving debug logs or feedback bundles no longer overwrites existing archive files
-- Custom agents, skills, and commands from ~/.claude/ are no longer loaded by the Copilot CLI
+- Custom agents, skills, and commands from ~/.claude/ are no longer loaded by the DAVCoding CLI
 - Claude Opus 4.6 now uses medium reasoning effort by default
 
 ## 1.0.35 - 2026-04-23
@@ -45,7 +45,7 @@
 - Model change notification shows both the previous and new model name
 - /update and /version commands now honor your configured update channel
 - Session sync prompt uses clearer labels and explains GitHub.com cross-device sync
-- Support COPILOT_GH_HOST environment variable for GitHub hostname, taking precedence over GH_HOST
+- Support DAVCODING_GH_HOST environment variable for GitHub hostname, taking precedence over GH_HOST
 - Press Ctrl+Y (in addition to Tab) to accept the highlighted option in completion popups (@-mentions, path completions, slash commands)
 - Add /session delete, delete <id>, and delete-all subcommands, and x-to-delete in the session picker
 - MCP server names with spaces and special characters are now supported
@@ -53,9 +53,9 @@
 - Shell completion notifications are not duplicated when read_bash already returned the result
 - --continue prefers resuming sessions from the current working directory instead of the most recently touched session
 - Status line script now includes context window fields that match the model badge and /context output
-- User settings are now stored in ~/.copilot/settings.json, separate from internal state in config.json
+- User settings are now stored in ~/.davcoding/settings.json, separate from internal state in config.json
 - Name sessions with --name and resume them by name with --resume=<name>
-- Configure Copilot agent now has shell access on Windows
+- Configure DAVCoding agent now has shell access on Windows
 - Show a helpful error message with install instructions when clipboard utilities (wl-clipboard or xclip) are missing on Linux
 - LSP server entries in lsp.json support configurable spawn, initialization, and warmup timeouts
 - Context window indicator in the statusline is now hidden by default
@@ -67,7 +67,7 @@
 - Session token expiry during a turn is handled automatically without requiring you to resend your message
 - Initial tab and arrow key navigation in /cwd and /add-dir path picker selects the correct item
 - Transient I/O errors no longer appear as red error entries in the timeline when an IDE or extension disconnects
-- Custom agents and skills in ~/.claude/ are no longer incorrectly loaded as Copilot project config
+- Custom agents and skills in ~/.claude/ are no longer incorrectly loaded as DAVCoding project config
 - Login command restores interactive input correctly after authentication
 - Improve rendering performance when displaying large amounts of text in the timeline
 - Sync task calls block until completion under MULTI_TURN_AGENTS instead of auto-promoting to background after 60s; sync no longer returns a reusable agent_id, use mode: "background" for follow-ups
@@ -107,12 +107,12 @@
 
 - Allow short session ID prefixes (7+ hex chars) with --resume and /resume instead of the full ID
 - /feedback saves the bundle to TEMP when the working directory is not writable
-- Select `auto` as your model to let Copilot automatically pick the best available model for each session
+- Select `auto` as your model to let DAVCoding automatically pick the best available model for each session
 - Add --print-debug-info flag to display version, terminal capabilities, and environment variables
 - Show warnings when approaching 75% and 90% of your weekly usage limit
 - Attach supported document files to prompts for the agent to read and reason about
 - Add --connect flag to directly connect to a remote session by ID
-- copilot login --host now correctly authenticates with GitHub Enterprise Cloud (GHE) instances
+- davcoding login --host now correctly authenticates with GitHub Enterprise Cloud (GHE) instances
 - Current date and time in agent context now includes local timezone offset
 - Terminal progress indicator stays visible while the agent is thinking
 - Status line no longer shows stray Unicode glyphs in terminals like Neovim after /clear
@@ -146,7 +146,7 @@
 - Blinking cursor maintains stable width so text does not shift during blink
 - Add --list-env flag to log loaded plugins, agents, skills, and MCP servers when running in prompt mode, helping verify environment configuration in CI pipelines
 - Add support for Claude Opus 4.7
-- Shell commands and MCP servers now receive COPILOT_AGENT_SESSION_ID as an environment variable
+- Shell commands and MCP servers now receive DAVCODING_AGENT_SESSION_ID as an environment variable
 - Agent correctly identifies repository owner from git remote URL rather than local username
 - Terminal state correctly restored after a crash exit on Windows
 
@@ -160,15 +160,15 @@
 - A clear error message is displayed when the configured editor cannot be launched
 - Mascot plays a short blink sequence on startup instead of blinking continuously
 - Connect to CLI remote control sessions from the —resume picker
-- Support COPILOT_DISABLE_TERMINAL_TITLE environment variable to opt out of terminal title updates
+- Support DAVCODING_DISABLE_TERMINAL_TITLE environment variable to opt out of terminal title updates
 
 ## 1.0.27 - 2026-04-15
 
-- Show a clear message when Copilot Pro trial is paused instead of a generic policy error
+- Show a clear message when DAVCoding Pro trial is paused instead of a generic policy error
 - Status bar shows @files and #issues hints while typing, and /help hint when the slash command picker is open
 - Clipboard copy on WSL no longer leaks an invisible BOM character into pasted text
 - Add /ask command to ask a quick question without affecting conversation history
-- Add `copilot plugin marketplace update` command to refresh plugin catalogs
+- Add `davcoding plugin marketplace update` command to refresh plugin catalogs
 
 ## 1.0.26 - 2026-04-14
 
@@ -179,10 +179,10 @@
 - Anthropic BYOM correctly includes image data when viewing image files
 - Permission prompt notification hook only fires when a prompt is actually shown to the user
 - ctrl+o now expands all timeline entries, same as ctrl+e
-- Remote tab correctly shows Copilot coding agent tasks and supports steering without requiring a pull request
+- Remote tab correctly shows DAVCoding agent tasks and supports steering without requiring a pull request
 - Rename "steering" to "remote control" in --remote flag and /remote command help text
-- Avoid sending duplicate custom instruction files (e.g. copilot-instructions.md and CLAUDE.md with identical content) to reduce wasted tokens per turn
-- Plugin hooks receive PLUGIN_ROOT, COPILOT_PLUGIN_ROOT, and CLAUDE_PLUGIN_ROOT env vars with the plugin's installation directory
+- Avoid sending duplicate custom instruction files (e.g. davcoding-instructions.md and CLAUDE.md with identical content) to reduce wasted tokens per turn
+- Plugin hooks receive PLUGIN_ROOT, DAVCODING_PLUGIN_ROOT, and CLAUDE_PLUGIN_ROOT env vars with the plugin's installation directory
 - ACP server binds to localhost only, preventing unintended network exposure
 - Installing a plugin named 'git' from a marketplace no longer fails due to incorrect URL parsing
 - Enterprise login accepts hostnames without a URL scheme (e.g. 'github.example.com')
@@ -215,10 +215,10 @@
 ## 1.0.24 - 2026-04-10
 
 - preToolUse hooks now respect modifiedArgs/updatedInput, and additionalContext fields
-- Custom agent model field now accepts display names and vendor suffixes from VS Code (e.g., "Claude Sonnet 4.5", "GPT-5.4 (copilot)")
+- Custom agent model field now accepts display names and vendor suffixes from VS Code (e.g., "Claude Sonnet 4.5", "GPT-5.4 (davcoding)")
 - Terminal state (alt screen, cursor, raw mode) is restored correctly after CLI crashes like OOM or segfaults
 - The --remote flag is respected when the session sync prompt appears on first run in a GitHub repo
-- Redesign exit screen with Copilot mascot and cleaner usage summary layout
+- Redesign exit screen with DAVCoding mascot and cleaner usage summary layout
 
 ## 1.0.23 - 2026-04-10
 
@@ -229,7 +229,7 @@
 - Slash command picker shows full skill descriptions and a refined scrollbar
 - /diff, /agent, /feedback, /ide, and /tuikit work while the agent is running
 - Display reasoning token usage in the per-model token breakdown when nonzero
-- Remote tab correctly shows Copilot coding agent tasks and supports steering via the Tasks API
+- Remote tab correctly shows DAVCoding agent tasks and supports steering via the Tasks API
 - Shell output with BEL characters no longer causes repeated terminal beeping
 - Migration notice for .vscode/mcp.json now includes a jq command to migrate your config to .mcp.json
 
@@ -254,7 +254,7 @@
 
 ## 1.0.21 - 2026-04-07
 
-- Add `copilot mcp` command for managing MCP servers
+- Add `davcoding mcp` command for managing MCP servers
 - Spinner no longer appears stuck when a long-running async shell command is active
 - Enterprise GitHub URL input in the login flow now accepts keyboard input and submits on Enter
 - Slash command picker no longer flickers or shifts the input while filtering
@@ -265,7 +265,7 @@
 
 ## 1.0.20 - 2026-04-07
 
-- Add `copilot help monitoring` topic with OpenTelemetry configuration details and examples
+- Add `davcoding help monitoring` topic with OpenTelemetry configuration details and examples
 - Spinner stays active until background agents and shell commands finish, and user input remains available throughout
 - Azure OpenAI BYOK defaults to the GA versionless v1 route when no API version is configured
 - Reduce UI sluggishness during live response streaming
@@ -274,7 +274,7 @@
 ## 1.0.19 - 2026-04-06
 
 - /mcp enable and /mcp disable now persist across sessions
-- OpenTelemetry monitoring: subagent spans now use INTERNAL span kind, and chat spans include a `github.copilot.time_to_first_chunk` attribute (streaming only)
+- OpenTelemetry monitoring: subagent spans now use INTERNAL span kind, and chat spans include a `github.davcoding.time_to_first_chunk` attribute (streaming only)
 - Plugin hook scripts with missing execute permissions now run correctly on macOS
 - Custom agent is properly restored when resuming a session where the agent display name differs from its filename
 - Skip IDE auto-connect when session is already in use by another client
@@ -289,7 +289,7 @@
 
 ## 1.0.17 - 2026-04-03
 
-- Built-in skills are now included with the CLI, starting with a guide for customizing Copilot cloud agent's environment
+- Built-in skills are now included with the CLI, starting with a guide for customizing DAVCoding cloud agent's environment
 - MCP OAuth flows now support HTTPS redirect URIs via a self-signed certificate fallback, improving compatibility with OAuth providers that require HTTPS (e.g., Slack)
 - /resume session picker loads significantly faster, especially with large session histories
 
@@ -307,7 +307,7 @@
 ## 1.0.15 - 2026-04-01
 
 - Remove support for gpt-5.1-codex, gpt-5.1-codex-mini, and gpt-5.1-codex-max models
-- Copilot mascot now blinks with subtle eye animations in interactive mode
+- DAVCoding mascot now blinks with subtle eye animations in interactive mode
 - User switcher and `/user list` display accounts in alphabetical order
 - Add mcp.config.list, mcp.config.add, mcp.config.update, and mcp.config.remove server RPCs for managing persistent MCP server configuration
 - Add device code flow (RFC 8628) as a fallback for MCP OAuth in headless and CI environments
@@ -340,7 +340,7 @@
 - Grep and glob search results return promptly when a timeout is reached
 - Keystrokes are no longer dropped when typing quickly in elicitation dialogs
 - Clipboard copy on native Windows no longer includes a stray U+FEFF character at the start of pasted text
-- Fixed --config-dir being ignored when resuming a session, causing paths to silently fall back to ~/.copilot
+- Fixed --config-dir being ignored when resuming a session, causing paths to silently fall back to ~/.davcoding
 - MCP servers blocked by allowlist policy are now hidden from /mcp show
 - Reasoning effort setting now applies correctly when using Bring Your Own Model (BYOM) providers
 - Ensure clear error messaging when using classic PATs
@@ -364,7 +364,7 @@
 - Grep and glob search results return promptly when a timeout is reached
 - Keystrokes are no longer dropped when typing quickly in elicitation dialogs
 - Clipboard copy on native Windows no longer includes a stray U+FEFF character at the start of pasted text
-- Fixed --config-dir being ignored when resuming a session, causing paths to silently fall back to ~/.copilot
+- Fixed --config-dir being ignored when resuming a session, causing paths to silently fall back to ~/.davcoding
 - Reduce CLI startup time by running terminal detection, auth, and git operations in parallel
 - /rewind and double-Esc now open a timeline picker that can roll back to any point in conversation history, not just the previous snapshot
 - MCP registry lookups are more reliable with automatic retries and request timeouts
@@ -505,7 +505,7 @@
 - Auto-update correctly recovers from race conditions on Windows
 - CLI no longer fails to load on Windows after updating while another instance is running
 - Reduce memory usage by eliminating redundant environment variable copies per child process spawn
-- Remaining requests widget no longer shows inaccurate quota data for Copilot Free users
+- Remaining requests widget no longer shows inaccurate quota data for DAVCoding Free users
 - Resolve session crashes caused by HTTP/2 connection pool race conditions when sub-agents are active
 - CLI loads the latest version of itself after an auto-update
 - Kill command validation no longer incorrectly blocks some legitimate commands. e.g. p.kill() in a python script
@@ -519,7 +519,7 @@
 - Native module prebuilds (e.g., conpty.node on Windows ARM64) load reliably on first launch
 - Subagent elapsed time in /tasks view freezes when idle and resumes when active again
 - Flags --enable-all-github-mcp-tools, --add-github-mcp-toolset, and --add-github-mcp-tool now take effect when using the SDK (ACP mode)
-- Custom instruction file paths load correctly when using COPILOT_CUSTOM_INSTRUCTIONS_DIRS
+- Custom instruction file paths load correctly when using DAVCODING_CUSTOM_INSTRUCTIONS_DIRS
 - Command output is no longer lost when a command causes the shell to exit
 - Plugins using .claude-plugin/plugin.json are discovered when loaded via --plugin-dir
 - Fix handling of shift+enter on VS Code with old /terminal-setup config.
@@ -586,7 +586,7 @@
 - Path permission dialog offers a one-time approval option in addition to adding the path to the allowed list
 - Add --reasoning-effort CLI flag to set reasoning effort level
 - Hooks can now request user confirmation before tool execution with 'ask' permission decision
-- Add configure-copilot sub-agent for managing MCP servers, custom agents, and skills via the task tool
+- Add configure-davcoding sub-agent for managing MCP servers, custom agents, and skills via the task tool
 - Interactive shell initialization no longer times out on slow machines
 - Faster shell commands on Windows by skipping PowerShell profile loading
 - Improve CLI help documentation to use standard --option=value format and comma-separated list syntax
@@ -594,7 +594,7 @@
 ## 1.0.3 - 2026-03-09
 
 - Enable alternate screen buffer by default for staff users
-- Extensions are now available as an experimental feature — ask Copilot to write custom tools and hooks for itself using @github/copilot-sdk
+- Extensions are now available as an experimental feature — ask DAVCoding to write custom tools and hooks for itself using @davcoding/sdk
 - Document GH_HOST, HTTP_PROXY, HTTPS_PROXY, NO_COLOR, and NO_PROXY environment variables in help
 - Read MCP server configuration from .devcontainer/devcontainer.json
 - Add --binary-version flag to query the CLI binary version without launching
@@ -623,7 +623,7 @@
 
 ## 1.0.2 - 2026-03-06
 
-To commemorate GitHub Copilot CLI reaching general availability last week, we're incrementing the major version to 1.0!
+To commemorate DAVCoding CLI reaching general availability last week, we're incrementing the major version to 1.0!
 
 - Type 'exit' as a bare command to close the CLI
 - Ask_user form now submits with Enter key and allows custom responses in enum fields
@@ -643,7 +643,7 @@ To commemorate GitHub Copilot CLI reaching general availability last week, we're
 ## 0.0.422 - 2026-03-05
 
 - Display request ID in authentication and authorization error messages to aid troubleshooting
-- Load personal hooks from ~/.copilot/hooks in addition to repo-level .github/hooks
+- Load personal hooks from ~/.davcoding/hooks in addition to repo-level .github/hooks
 - Timeline now shows the question in a box and displays 'Making best guess on autopilot' when ask_user is auto-responded
 - Add support for GPT-5.4 model
 - Plugin cache automatically recovers from a corrupted or incomplete clone without manual intervention
@@ -682,7 +682,7 @@ To commemorate GitHub Copilot CLI reaching general availability last week, we're
 - Show a waiting message when the terminal is handed to an external editor
 - Support enabledPlugins in config for automatic plugin installation at startup
 - Improve key bindings in reverse history search: Ctrl+J to accept, Ctrl+G to cancel
-- Rename repository config from `.github/copilot/config.json` to `settings.json`
+- Rename repository config from `.github/davcoding/config.json` to `settings.json`
 - Support installing plugins from ssh:// URLs
 - Session usage metrics (requests, tokens, code changes) are now persisted to events.jsonl after each session ends
 
@@ -692,7 +692,7 @@ To commemorate GitHub Copilot CLI reaching general availability last week, we're
 - AUTO theme now reads your terminal's ANSI color palette and uses it directly, so colors match your terminal theme
 - Add structured form input for the ask_user tool using MCP Elicitations (experimental)
 - Plugin commands read extraKnownMarketplaces from project-level .claude/settings.json for Claude compatibility
-- Git hooks can detect Copilot CLI subprocesses via the COPILOT_CLI=1 environment variable to skip interactive prompts
+- Git hooks can detect DAVCoding CLI subprocesses via the DAVCODING_CLI=1 environment variable to skip interactive prompts
 - Spurious "write EIO" error entries no longer appear in the timeline during session resume or terminal state transitions
 - Python-based MCP servers no longer time out due to buffered stdout
 - Error when --model flag specifies an unavailable model
@@ -701,10 +701,10 @@ To commemorate GitHub Copilot CLI reaching general availability last week, we're
 - Add --plugin-dir flag to load a plugin from a local directory
 - Mouse text selection is automatically copied to the Linux primary selection buffer (middle-click to paste)
 - Fix VS Code shift+enter and ctrl+enter keybindings for multiline input
-- Use consistent ~/.copilot/pkg path for auto-update instead of XDG_STATE_HOME
+- Use consistent ~/.davcoding/pkg path for auto-update instead of XDG_STATE_HOME
 - ACP clients can configure reasoning effort via session config options
 - Click links in the terminal to open them in your default browser
-- Support repo-level config via .github/copilot/config.json for shared project settings like marketplaces and launch messages
+- Support repo-level config via .github/davcoding/config.json for shared project settings like marketplaces and launch messages
 - Streaming output no longer truncates when running in alt-screen mode
 - Right-click paste no longer produces garbled text on Windows
 - Shell command output on Windows no longer renders as "No changes detected" in the timeline
@@ -737,7 +737,7 @@ To commemorate GitHub Copilot CLI reaching general availability last week, we're
 
 ## 0.0.418 - 2026-02-25
 
-🎉 Copilot CLI is now [generally available](https://github.blog/changelog/2026-02-25-github-copilot-cli-is-now-generally-available) 🎉
+🎉 DAVCoding CLI is now [generally available](https://github.blog/changelog/2026-02-25-github-davcoding-cli-is-now-generally-available) 🎉
 
 - Agent protected from accidentally killing itself
 - Remove --disable-parallel-tools-execution flag and parallel_tool_execution config option
@@ -754,7 +754,7 @@ To commemorate GitHub Copilot CLI reaching general availability last week, we're
 ## 0.0.416 - 2026-02-24
 
 - Expand `--help` content with descriptions, examples, and sorted flags
-- Block third-party MCP servers when the Copilot MCP policy does not allow them
+- Block third-party MCP servers when the DAVCoding MCP policy does not allow them
 - Streaming response size counter updates continuously during tool calls and reasoning, and resets between requests
 - Status line automatically switches to a two-line layout on narrow terminals, keeping CWD, branch, and model info readable at any terminal width
 - Undo operations now always require confirmation
@@ -780,7 +780,7 @@ To commemorate GitHub Copilot CLI reaching general availability last week, we're
 
 ## 0.0.413 - 2026-02-20
 
-- Fix issue where Copilot API URL wasn't respected
+- Fix issue where DAVCoding API URL wasn't respected
 - Display heading content from reasoning for gpt models
 - Increase LSP request timeout from 30s to 90s to reduce timeout failures
 - Fixed alt-screen timeline entries not updating when tool calls complete (particularly sub-agent calls)
@@ -816,7 +816,7 @@ To commemorate GitHub Copilot CLI reaching general availability last week, we're
 - Configure LSP server request timeouts in lsp.json
 - Add `/update` command to view changelog and update instructions
 - Add exit_plan_mode tool with plan approval dialog for reviewing and accepting plans
-- Support ~/.copilot/instructions/\*.instructions.md files for user-level instructions across all repositories
+- Support ~/.davcoding/instructions/\*.instructions.md files for user-level instructions across all repositories
 - Add double-click word and triple-click line selection in alt-screen text selection
 - Edit the prompt in your preferred terminal editor with ctrl+x ctrl+e
 - Prevents spurious error messages from appearing in terminal on Windows
@@ -886,18 +886,18 @@ To commemorate GitHub Copilot CLI reaching general availability last week, we're
 - MCP server errors and loading issues surface in timeline
 - Reduce input jitter with frame coalescing and smoother alt-screen animations
 - Extend skill name validation to support underscores, dots, and spaces; make name and description optional in skill frontmatter with sensible fallbacks
-- Add Copilot co-authored by trailer to git commits created
+- Add DAVCoding co-authored by trailer to git commits created
 
 ## 0.0.409 - 2026-02-12
 
 - /diff uses full screen in alt-screen mode
 - Quick help overlay: press `?` to see grouped shortcuts and commands, navigate with arrow keys
 - Theme preview appears above theme list in screen reader mode
-- Add `list_copilot_spaces` tool to default GitHub MCP config
+- Add `list_davcoding_spaces` tool to default GitHub MCP config
 - Subagents return complete responses
 - CLI now integrates with VS Code, use /ide for more information.
 - Permission prompts with long diffs are scrollable in alt-screen mode
-- Include default plugin marketplaces (copilot-plugins, awesome-copilot) for easier plugin discovery
+- Include default plugin marketplaces (davcoding-plugins, awesome-davcoding) for easier plugin discovery
 
 ## 0.0.408 - 2026-02-12
 
@@ -914,7 +914,7 @@ To commemorate GitHub Copilot CLI reaching general availability last week, we're
 ## 0.0.407 - 2026-02-11
 
 - Improve authentication error messages in prompt mode
-- Quota exceeded error links to Copilot settings with actionable guidance
+- Quota exceeded error links to DAVCoding settings with actionable guidance
 - Theme picker shows live preview of diffs and markdown, adds colorblind and tritanopia theme variants
 - Add `/on-air` mode to hide model names and quota details for streaming
 - Show agent type and description in read_agent timeline entries
@@ -954,7 +954,7 @@ To commemorate GitHub Copilot CLI reaching general availability last week, we're
 
 - Add support for Claude Opus 4.6 Fast (Preview)
 - Markdown formatting displays in non-interactive mode output
-- Display warning when user has no Copilot subscription
+- Display warning when user has no DAVCoding subscription
 - Commands from plugins are now translated into skills
 - Add `/changelog` command to view release notes
 - plugin marketplace add accepts URLs as sources
@@ -1019,7 +1019,7 @@ To commemorate GitHub Copilot CLI reaching general availability last week, we're
 - ACP terminal-auth passes correct arguments to login
 - Arrow and special keys work reliably when held down
 - Slash command ghost text appends correctly
-- Add `copilot login` subcommand and support ACP terminal-auth
+- Add `davcoding login` subcommand and support ACP terminal-auth
 - Add agentStop and subagentStop hooks to control agent completion
 - CLI handles unknown keypresses gracefully
 - /diff displays accurate line numbers with dual column layout
@@ -1043,7 +1043,7 @@ To commemorate GitHub Copilot CLI reaching general availability last week, we're
 - Add autopilot mode for autonomous task completion (experimental)
 - Add fuzzy search to model picker
 - Freeform text input in list pickers works correctly
-- Add `copilot plugin` subcommand for non-interactive plugin management
+- Add `davcoding plugin` subcommand for non-interactive plugin management
 - CLI is more responsive in sessions with many messages
 - Shell path detection more accurately handles spaces, quotes, and Windows switches
 - Diff mode file list uses carousel navigation, showing up to 5 files at a time
@@ -1058,7 +1058,7 @@ To commemorate GitHub Copilot CLI reaching general availability last week, we're
 - Press Ctrl+X then / to run slash commands without losing your input
 - Improve `/diff` command with better visual indicators and scroll acceleration
 - Add `/allow-all` and `/yolo` commands to auto-approve all permissions during a session
-- Add Copilot option for agent creation wizard to generate name, description, and instructions based on initial agent description
+- Add DAVCoding option for agent creation wizard to generate name, description, and instructions based on initial agent description
 - Add LSP (Language Server Protocol) tool for code intelligence (requires experimental flag)
 - Sessions get AI-generated names from first message
 - Skills remain effective after conversation history is compacted
@@ -1097,12 +1097,12 @@ To commemorate GitHub Copilot CLI reaching general availability last week, we're
 - Create custom agents through interactive CLI wizard
 - Tool filtering flags now apply to subagents
 - Error messages consistently reference /login and /logout commands
-- Add `copilot version` and `copilot update` commands
+- Add `davcoding version` and `davcoding update` commands
 - preToolUse hooks can deny tool execution and modify arguments
 - Fix PTY leak in bash session handling
 - `/plugin install` supports GitHub repos, URLs, and local paths
 - Add `/experimental` command and `--experimental` flag to opt into experimental features
-- Add `/init` command to generate Copilot instructions
+- Add `/init` command to generate DAVCoding instructions
 - Reorder model picker list for better organization
 - Plugins can provide custom agents
 - Open plan files in VS Code on WSL and devcontainers
@@ -1214,7 +1214,7 @@ To commemorate GitHub Copilot CLI reaching general availability last week, we're
 - The store_memory tool is only included when memory is enabled for the user
 - Input placeholder now says "Type" instead of "Enter" to avoid confusion with Enter key
 - Cursor now correctly positioned at end of line when navigating history with down arrow
-- The new memory feature gracefully handles Copilot running without a repository
+- The new memory feature gracefully handles DAVCoding running without a repository
 - Control-C message now displays for 5 seconds instead of 1 second
 - Display current intent in terminal tab title
 - Combine all custom instruction files instead of using priority-based fallbacks
@@ -1242,7 +1242,7 @@ To commemorate GitHub Copilot CLI reaching general availability last week, we're
 - Reasoning view setting persists across sessions
 - Provide clearer error messages when repository is not found or access is denied
 - Inject repo memories in the prompt and add memory storage tool to remember facts across sessions
-- Show delay time when Copilot reads shell output with a delay
+- Show delay time when DAVCoding reads shell output with a delay
 - Support proxy URLs without scheme (e.g., localhost:9999)
 
 ## 0.0.382 - 2026-01-14
@@ -1271,7 +1271,7 @@ To commemorate GitHub Copilot CLI reaching general availability last week, we're
 - Custom agent tool aliasing for the task tool
 - Allow reading files >10MB when using view_range parameter
 - Sessions with large conversation history load faster on startup
-- Send messages while Copilot is thinking to steer or queue
+- Send messages while DAVCoding is thinking to steer or queue
 - Keyboard shortcuts: Ctrl+O now expands recent timeline, Ctrl+E expands all timeline (Ctrl+R unbound for future use)
 
 ## 0.0.377 - 2026-01-08
@@ -1306,7 +1306,7 @@ To commemorate GitHub Copilot CLI reaching general availability last week, we're
 ## 0.0.373 - 2025-12-30
 
 - Tab completion for path arguments in slash commands like `/cwd` and `/add-dir`
-- Enable Copilot Spaces tools in GitHub MCP Server
+- Enable DAVCoding Spaces tools in GitHub MCP Server
 - GitHub URL resolves correctly for GHE
 - Kill command filtering now allows commands when 'kill' appears as an argument
 - Device code authorization polling begins immediately instead of waiting for clipboard and browser
@@ -1322,7 +1322,7 @@ To commemorate GitHub Copilot CLI reaching general availability last week, we're
 ## 0.0.371 - 2025-12-18
 
 - Normal text respects terminal's default foreground color
-- Update skills help text to reference correct ~/.copilot/skills/ directory
+- Update skills help text to reference correct ~/.davcoding/skills/ directory
 
 ## 0.0.370 - 2025-12-18
 
@@ -1353,7 +1353,7 @@ To commemorate GitHub Copilot CLI reaching general availability last week, we're
 
 ## 0.0.367 - 2025-12-04
 
-- GPT-5.1-Codex-Max is now available in GitHub Copilot CLI
+- GPT-5.1-Codex-Max is now available in DAVCoding CLI
 
 ## 0.0.366 - 2025-12-03
 
@@ -1372,7 +1372,7 @@ To commemorate GitHub Copilot CLI reaching general availability last week, we're
 
 ## 0.0.363 - 2025-11-24
 
-- Opus 4.5, GPT-4.1 and GPT-5-Mini are now available in GitHub Copilot CLI
+- Opus 4.5, GPT-4.1 and GPT-5-Mini are now available in DAVCoding CLI
 - Image data paste now prioritizes pasting contents of image files instead of their file icons.
 - Improved timeline rendering of shell tool names
 - Add support for GITHUB_ASKPASS environment variable for authentication
@@ -1400,7 +1400,7 @@ To commemorate GitHub Copilot CLI reaching general availability last week, we're
 - Improve `Ctrl+C` performance
 - Improve tool argument parsing safety
 - Distinguish tool names from paths and improve tool success/error icons
-- `copilot -p` will no longer interactively prompt for permission requests
+- `davcoding -p` will no longer interactively prompt for permission requests
 - Remove unnecessary whitespace from tool descriptions
 
 ## 0.0.358 - 2025-11-14
@@ -1413,7 +1413,7 @@ To commemorate GitHub Copilot CLI reaching general availability last week, we're
 
 ## 0.0.356 - 2025-11-13
 
-- GPT-5.1, GPT-5.1-Codex, and GPT-5.1-Codex-Mini are now available in GitHub Copilot CLI
+- GPT-5.1, GPT-5.1-Codex, and GPT-5.1-Codex-Mini are now available in DAVCoding CLI
 
 ## 0.0.355 - 2025-11-12
 
@@ -1432,7 +1432,7 @@ To commemorate GitHub Copilot CLI reaching general availability last week, we're
 - Lowered the default shell tool timeout and updated prompt language to not imply that timeout means failure
 - Ensured that we query the terminal background color before rendering
 - Ensured that the agent won't run `pkill` on its own PID
-- Fixed a bug where `copilot` would not quit after an abort signal
+- Fixed a bug where `davcoding` would not quit after an abort signal
 - Ensure `!` commands on Windows use PowerShell when available
 - Fixed a bug in Windows Terminal where keyboard input was not accepted
 
@@ -1440,7 +1440,7 @@ To commemorate GitHub Copilot CLI reaching general availability last week, we're
 
 - Exit with nonzero code when `-p` mode fails due to LLM backend errors (auth failures, quota exhaustion, network issues)
 - Support for MCP server tool notifications
-- Support for `COPILOT_GITHUB_TOKEN` environment variable for authentication (takes precedence over `GH_TOKEN`)
+- Support for `DAVCODING_GITHUB_TOKEN` environment variable for authentication (takes precedence over `GH_TOKEN`)
 - Improved shell command safety with better heredoc handling outside of commands
 - Diff hunk lines now properly fill the width of the diff box
 - MCP servers in GitHub Actions environments automatically use `GITHUB_WORKSPACE` as working directory
@@ -1451,8 +1451,8 @@ To commemorate GitHub Copilot CLI reaching general availability last week, we're
 
 ## 0.0.353 - 2025-10-28
 
-- Added support for custom agents. Custom agent definitions are pulled from `~/.copilot/agents`, `.github/agents` in your repository, or your organization's `.github` repository. You can explicitly invoke an agent with the `/agent` slash command interactively or `--agent <agent>` noninteractively. Agents are also provided as tools that the model can call during completion of a task
-- Added a `/delegate` command to delegate a task asynchronously to Copilot coding agent. Any unstaged changes will be committed to a new branch, a PR will be opened in your GitHub repository, and Copilot will complete work in the background.
+- Added support for custom agents. Custom agent definitions are pulled from `~/.davcoding/agents`, `.github/agents` in your repository, or your organization's `.github` repository. You can explicitly invoke an agent with the `/agent` slash command interactively or `--agent <agent>` noninteractively. Agents are also provided as tools that the model can call during completion of a task
+- Added a `/delegate` command to delegate a task asynchronously to DAVCoding agent. Any unstaged changes will be committed to a new branch, a PR will be opened in your GitHub repository, and DAVCoding will complete work in the background.
 
 ## 0.0.352 - 2025-10-27
 
@@ -1464,8 +1464,8 @@ To commemorate GitHub Copilot CLI reaching general availability last week, we're
 - Improved our path detection heuristic to avoid various annoying, unnecessary permissions requests:
     - Running many standard bash/PowerShell commands that are known to be readonly (Fixes part of https://github.com/github/sweagentd/issues/7372)
     - Commands like `npm test -- --something` in PowerShell
-    - Shell redirections like `> some_file.txt` in paths you've already granted write permissions, `> /dev/null`, and `2>&1` (Fixes https://github.com/github/copilot-cli/issues/211)
-    - Arguments to `gh api` like `gh api /repos/user/repo/ec` (Fixes https://github.com/github/copilot-cli/issues/216)
+    - Shell redirections like `> some_file.txt` in paths you've already granted write permissions, `> /dev/null`, and `2>&1` (Fixes https://github.com/cptleftnut/DAVCoding/issues/211)
+    - Arguments to `gh api` like `gh api /repos/user/repo/ec` (Fixes https://github.com/cptleftnut/DAVCoding/issues/216)
 - Improved prompting for Sonnet 4.5 to reduce the number of intermediate markdown files left in the workspace
 - 👀 ...see you at [GitHub Universe](https://githubuniverse.com/)!
 
@@ -1473,51 +1473,51 @@ To commemorate GitHub Copilot CLI reaching general availability last week, we're
 
 - To conserve context window space, we've limited the list of tools available to the default GitHub MCP server. In our tests, the model will use the [GitHub CLI, `gh`](https://github.com/cli/cli) (if installed) in lieu of missing MCP tools. We added an `--enable-all-github-mcp-tools` if you wish to turn on all available tools.
   Default available tools are: - Code & Repo navigation - get_file_contents - search_code - search_repositories - list_branches - list_commits - get_commit - Issue Management - get_issue - list_issues - get_issue_comments - search_issues - PR Management - pull_request_read - list_pull_requests - search_pull_requests - Workflow Info - list_workflows - list_workflow_runs - get_workflow_run - get_job_logs - get_workflow_run_logs - Misc search - user_search
-- Bundled `sharp` dependency into the CLI package -- we're one step closer to implementing https://github.com/github/copilot-cli/issues/16, and this fixes some startup blockers on Windows (fixes https://github.com/github/copilot-cli/issues/309 & https://github.com/github/copilot-cli/issues/287)
-- Fixed a bug where input tokens were not tracked properly (Fixes https://github.com/github/copilot-cli/issues/337)
+- Bundled `sharp` dependency into the CLI package -- we're one step closer to implementing https://github.com/cptleftnut/DAVCoding/issues/16, and this fixes some startup blockers on Windows (fixes https://github.com/cptleftnut/DAVCoding/issues/309 & https://github.com/cptleftnut/DAVCoding/issues/287)
+- Fixed a bug where input tokens were not tracked properly (Fixes https://github.com/cptleftnut/DAVCoding/issues/337)
 - Fixed a bug where MCP tools with arguments would fail with streaming enabled
-- Added additional debug logging that will help us investigate https://github.com/github/copilot-cli/issues/346
+- Added additional debug logging that will help us investigate https://github.com/cptleftnut/DAVCoding/issues/346
 
 ## 0.0.349 - 2025-10-22
 
 - The model can now call multiple tools in parallel. Each tool must be confirmed in advance. This behavior can be disabled with the `--disable-parallel-tools-execution` flag
-- Added `/quit` as an alias of `/exit` (fixes https://github.com/github/copilot-cli/issues/357)
-- Fixed a bug where every streamed output chunk was sent back to the model as part of the conversation (fixes https://github.com/github/copilot-cli/issues/379)
+- Added `/quit` as an alias of `/exit` (fixes https://github.com/cptleftnut/DAVCoding/issues/357)
+- Fixed a bug where every streamed output chunk was sent back to the model as part of the conversation (fixes https://github.com/cptleftnut/DAVCoding/issues/379)
 - Ensure that environment variables are expanded before running path permission checks
 - Fixed a bug where Ctrl+K deleted to the end of the visual line in the input box rather than the logical line
-- Added the temp directory to the paths that the model has access to by default (fixes https://github.com/github/copilot-cli/issues/306)
+- Added the temp directory to the paths that the model has access to by default (fixes https://github.com/cptleftnut/DAVCoding/issues/306)
 
 ## 0.0.348 - 2025-10-21
 
-- Copilot's output now streams in token-by-token! This can be disabled with `--stream off`
-- Made improvements to the memory footprint of Copilot CLI, especially when dealing with shell commands that produce very large outputs
-- Ensured we preserve comments in VSCode config files when using `/terminal-setup` (fixes https://github.com/github/copilot-cli/issues/325)
-- Bundled `node-pty` into the CLI package -- we're one step closer to implementing https://github.com/github/copilot-cli/issues/16
-- Fixed an issue where local tool calling broke sessions (fixes https://github.com/github/copilot-cli/issues/365, https://github.com/github/copilot-cli/issues/364, https://github.com/github/copilot-cli/issues/366)
-- Added our LICENSE.md to our Node package (fixes https://github.com/github/copilot-cli/issues/371)
-- Added debug logging to authentication status changes to get to the bottom of https://github.com/github/copilot-cli/issues/346
+- DAVCoding's output now streams in token-by-token! This can be disabled with `--stream off`
+- Made improvements to the memory footprint of DAVCoding CLI, especially when dealing with shell commands that produce very large outputs
+- Ensured we preserve comments in VSCode config files when using `/terminal-setup` (fixes https://github.com/cptleftnut/DAVCoding/issues/325)
+- Bundled `node-pty` into the CLI package -- we're one step closer to implementing https://github.com/cptleftnut/DAVCoding/issues/16
+- Fixed an issue where local tool calling broke sessions (fixes https://github.com/cptleftnut/DAVCoding/issues/365, https://github.com/cptleftnut/DAVCoding/issues/364, https://github.com/cptleftnut/DAVCoding/issues/366)
+- Added our LICENSE.md to our Node package (fixes https://github.com/cptleftnut/DAVCoding/issues/371)
+- Added debug logging to authentication status changes to get to the bottom of https://github.com/cptleftnut/DAVCoding/issues/346
 
 ## 0.0.347 - 2025-10-20
 
 - Fixed more bugs where incorrect PRU consumption stats were displayed on the frontend
-  For more information, see https://github.com/github/copilot-cli/issues/351#issuecomment-3423735333
+  For more information, see https://github.com/cptleftnut/DAVCoding/issues/351#issuecomment-3423735333
 - Fixed a bug where pasted input content that was backspaced away was still sent to the model
 - Improved line wrapping and alignment when rendering file diffs
 
 ## 0.0.346 - 2025-10-19
 
 - Fixed a bug where model sourced from configuration file was not accounted for correctly in estimating premium request usage
-  For more information, see https://github.com/github/copilot-cli/issues/351#issuecomment-3419045411
+  For more information, see https://github.com/cptleftnut/DAVCoding/issues/351#issuecomment-3419045411
 
 ## 0.0.345 - 2025-10-18
 
-- Fixed a bug where premium requests were being overcounted for some users (https://github.com/github/copilot-cli/issues/351). If you were affected, we are working on refunding your overcharged premium requests!
+- Fixed a bug where premium requests were being overcounted for some users (https://github.com/cptleftnut/DAVCoding/issues/351). If you were affected, we are working on refunding your overcharged premium requests!
 
 ## 0.0.344 - 2025-10-17
 
 - Enabled GitHub MCP server in prompt mode
 - Added support to the bash tool for executing detached processes
-- Added list of supported models as part of `copilot help config` text
+- Added list of supported models as part of `davcoding help config` text
 - Fixed session abort handling to properly clean up orphaned tool call when pressing <kbd>Esc</kbd> or force-quitting
 - Enforced minimum Node version requirement at launch
 - Simplified messaging for `/terminal-setup`
@@ -1529,12 +1529,12 @@ To commemorate GitHub Copilot CLI reaching general availability last week, we're
   Run slash model to equip
   Haiku 4.5.
   ```
-- Added a flag to augment MCP server configuration to temporarily add or override server configuration per session: `--additional-mcp-config` (fixes https://github.com/github/copilot-cli/issues/288)
+- Added a flag to augment MCP server configuration to temporarily add or override server configuration per session: `--additional-mcp-config` (fixes https://github.com/cptleftnut/DAVCoding/issues/288)
     - You can pass MCP server configuration in two ways:
-        - Inline JSON: `copilot --additional-mcp-config '{"mcpServers": {"my-tool": {...}}}'`
-        - From a file (prefix with @): `copilot --additional-mcp-config @/path/to/config.json`
-    - You can also pass the flag multiple times (later values override earlier ones): `copilot --additional-mcp-config @base.json --additional-mcp-config @overrides.json`
-- Improved our prompts to ensure the agent uses Windows-style paths on Windows (fixes https://github.com/github/copilot-cli/issues/261)
+        - Inline JSON: `davcoding --additional-mcp-config '{"mcpServers": {"my-tool": {...}}}'`
+        - From a file (prefix with @): `davcoding --additional-mcp-config @/path/to/config.json`
+    - You can also pass the flag multiple times (later values override earlier ones): `davcoding --additional-mcp-config @base.json --additional-mcp-config @overrides.json`
+- Improved our prompts to ensure the agent uses Windows-style paths on Windows (fixes https://github.com/cptleftnut/DAVCoding/issues/261)
 - Added a prompt for users to run `/terminal-setup` if needed to enable multi-line input
 - Various visual improvements:
     - Added a shimmer effect to the "Thinking..." indicator
@@ -1547,31 +1547,31 @@ To commemorate GitHub Copilot CLI reaching general availability last week, we're
 
 - Overhauled our session logging format:
     - Introduced a new session logging format that decouples how we store sessions from how we display them in the timeline. The new format is cleaner, more concise, and scalable, and will allow us to more easily implement new features down the line.
-    - New sessions are stored in `~/.copilot/session-state`
-    - Legacy sessions are stored in `~/.copilot/history-session-state` -- these will be migrated to the new format & location as you resume them from `copilot --resume`
-- Enabled the Kitty protocol by default. Multi-line input is now supported via Shift+Ctrl on terminal that support the Kitty protocol. Multi-line input is also supported in VSCode and its forks by running the `/terminal-setup` command (fixes https://github.com/github/copilot-cli/issues/14)
-- Enabled non-interactive GHE logins by respecting the `GH_HOST` environment variable for PAT and `gh` authentication modes (fixes https://github.com/github/copilot-cli/issues/296)
-- Improved debug log collection convenience by adding a persistent `log_level` option in `~/.copilot/config`. Possible values: `["none", "error", "warning", "info", "debug", "all", "default"]`
-- Added debug logging when calls to `/model` result in Copilot API errors. This should help us diagnose some policy/model access edge cases like https://github.com/github/copilot-cli/issues/268 and https://github.com/github/copilot-cli/issues/116
-- Added `gradlew` to the list of commands whose subcommands can be whitelisted (fixes https://github.com/github/copilot-cli/issues/217#issuecomment-3393844685)
-- Fixed a bug where sessions could enter a stuck state after a failed MCP tool call (fixes https://github.com/github/copilot-cli/issues/312)
+    - New sessions are stored in `~/.davcoding/session-state`
+    - Legacy sessions are stored in `~/.davcoding/history-session-state` -- these will be migrated to the new format & location as you resume them from `davcoding --resume`
+- Enabled the Kitty protocol by default. Multi-line input is now supported via Shift+Ctrl on terminal that support the Kitty protocol. Multi-line input is also supported in VSCode and its forks by running the `/terminal-setup` command (fixes https://github.com/cptleftnut/DAVCoding/issues/14)
+- Enabled non-interactive GHE logins by respecting the `GH_HOST` environment variable for PAT and `gh` authentication modes (fixes https://github.com/cptleftnut/DAVCoding/issues/296)
+- Improved debug log collection convenience by adding a persistent `log_level` option in `~/.davcoding/config`. Possible values: `["none", "error", "warning", "info", "debug", "all", "default"]`
+- Added debug logging when calls to `/model` result in DAVCoding API errors. This should help us diagnose some policy/model access edge cases like https://github.com/cptleftnut/DAVCoding/issues/268 and https://github.com/cptleftnut/DAVCoding/issues/116
+- Added `gradlew` to the list of commands whose subcommands can be whitelisted (fixes https://github.com/cptleftnut/DAVCoding/issues/217#issuecomment-3393844685)
+- Fixed a bug where sessions could enter a stuck state after a failed MCP tool call (fixes https://github.com/cptleftnut/DAVCoding/issues/312)
 - Made the output of `--help` text more concise
 
 ## 0.0.341 - 2025-10-14
 
 - Added `/terminal-setup` command to set up multi-line input on terminals not implementing the kitty protocol
-- Fixed a bug where rejecting an MCP tool call would reject all future tool calls (fixes https://github.com/github/copilot-cli/issues/290)
+- Fixed a bug where rejecting an MCP tool call would reject all future tool calls (fixes https://github.com/cptleftnut/DAVCoding/issues/290)
 - Fixed a regression where calling `/model` with an argument did not work properly
 - Added each model's premium request multiplier to the `/model` list (currently, all our supported models are 1x)
 
 ## 0.0.340 - 2025-10-13
 
 - Removed the "Windows support is experimental" warning -- we've made some big strides in improving Windows support the last two weeks! Please continue to report any issues/feedback
-- Improved debugging by including the Copilot API request ID for model calls errors and stack traces for client errors
-- Fixed an issue where consecutive orphaned tool calls led to a "Each `tool_use` block must have a corresponding `tool_result` block in the next message" message (fixes https://github.com/github/copilot-cli/issues/102)
+- Improved debugging by including the DAVCoding API request ID for model calls errors and stack traces for client errors
+- Fixed an issue where consecutive orphaned tool calls led to a "Each `tool_use` block must have a corresponding `tool_result` block in the next message" message (fixes https://github.com/cptleftnut/DAVCoding/issues/102)
 - Added a prompt to approve new paths in `-p` mode. Also added `--allow-all-paths` argument that approves access to all paths.
-- Changed parsing of environment variables in MCP server configuration to treat the value of the `env` section as literal values (fixes https://github.com/github/copilot-cli/issues/26).
-  Customers who have configured MCP Servers for use with the CLI will need to make a slight modification to their `~/.copilot/mcp-config.json`. For any servers they have added with an `env` section, they will need to go add a `$` to the start of the "value" pair of the key value pair of each entry in the env-block, so to have the values treated as references to environment variables.
+- Changed parsing of environment variables in MCP server configuration to treat the value of the `env` section as literal values (fixes https://github.com/cptleftnut/DAVCoding/issues/26).
+  Customers who have configured MCP Servers for use with the CLI will need to make a slight modification to their `~/.davcoding/mcp-config.json`. For any servers they have added with an `env` section, they will need to go add a `$` to the start of the "value" pair of the key value pair of each entry in the env-block, so to have the values treated as references to environment variables.
 
     For example: Before:
 
@@ -1596,29 +1596,29 @@ To commemorate GitHub Copilot CLI reaching general availability last week, we're
 ## 0.0.339 - 2025-10-10
 
 - Improved argument input to MCP servers in `/mcp add` -- previously, users had to use comma-separated syntax to specify arguments. Now, the "Command" field allows users to input the full command to start the server as if they were running it in a shell
-- Fixed a bug when using the Kitty protocol that led to text containing `u` to not paste correctly. Kitty protocol support is still behind the `COPILOT_KITTY` environment variable. (Fixes https://github.com/github/copilot-cli/issues/259)
-- Fixed a bug when using the Kitty protocol that led to the process hanging in VSCode terminal on Windows. Kitty protocol support is still behind the `COPILOT_KITTY` environment variable. (Fixes https://github.com/github/copilot-cli/issues/257)
-- Improved the error handling in the `/model` picker when no models are available (fixes https://github.com/github/copilot-cli/issues/229)
+- Fixed a bug when using the Kitty protocol that led to text containing `u` to not paste correctly. Kitty protocol support is still behind the `DAVCODING_KITTY` environment variable. (Fixes https://github.com/cptleftnut/DAVCoding/issues/259)
+- Fixed a bug when using the Kitty protocol that led to the process hanging in VSCode terminal on Windows. Kitty protocol support is still behind the `DAVCODING_KITTY` environment variable. (Fixes https://github.com/cptleftnut/DAVCoding/issues/257)
+- Improved the error handling in the `/model` picker when no models are available (fixes https://github.com/cptleftnut/DAVCoding/issues/229)
 
 ## 0.0.338 - 2025-10-09
 
-- Moved Kitty protocol support behind the `COPILOT_KITTY` environment variable due to observed regressions (https://github.com/github/copilot-cli/issues/257, https://github.com/github/copilot-cli/issues/259)
+- Moved Kitty protocol support behind the `DAVCODING_KITTY` environment variable due to observed regressions (https://github.com/cptleftnut/DAVCoding/issues/257, https://github.com/cptleftnut/DAVCoding/issues/259)
 - Fixed a wrapping issue in multi-line prompts with empty lines
 
 ## 0.0.337 - 2025-10-08
 
-- Added validation for MCP server names (fixes https://github.com/github/copilot-cli/issues/110)
-- Added support for Ctrl+B and Ctrl+F for moving cursor back and forward (fixes https://github.com/github/copilot-cli/issues/214)
-- Added support for multi-line input for terminals that support the [Kitty protocol](https://sw.kovidgoyal.net/kitty/keyboard-protocol/) (partially fixes https://github.com/github/copilot-cli/issues/14 -- broader terminal support coming soon!)
-- Updated the OAuth login UI to begin polling as soon as the device code is generated (this will _more solidly_ fix SSH edge-cases as described in https://github.com/github/copilot-cli/issues/89)
+- Added validation for MCP server names (fixes https://github.com/cptleftnut/DAVCoding/issues/110)
+- Added support for Ctrl+B and Ctrl+F for moving cursor back and forward (fixes https://github.com/cptleftnut/DAVCoding/issues/214)
+- Added support for multi-line input for terminals that support the [Kitty protocol](https://sw.kovidgoyal.net/kitty/keyboard-protocol/) (partially fixes https://github.com/cptleftnut/DAVCoding/issues/14 -- broader terminal support coming soon!)
+- Updated the OAuth login UI to begin polling as soon as the device code is generated (this will _more solidly_ fix SSH edge-cases as described in https://github.com/cptleftnut/DAVCoding/issues/89)
 
 ## 0.0.336 - 2025-10-07
 
-- Enabled proxy support via HTTPS_PROXY/HTTP_PROXY environment variables regardless of Node version (Fixes https://github.com/github/copilot-cli/issues/41)
+- Enabled proxy support via HTTPS_PROXY/HTTP_PROXY environment variables regardless of Node version (Fixes https://github.com/cptleftnut/DAVCoding/issues/41)
 - Significantly reduced token consumption, round trips per problem, and time to result. We'll share more specific data in our weekly changelog on Friday!
 - Improved file write performances (especially on Windows) by not relying on the shell to fetch the current working directory
 - Fixed a bug where `/clear` did not properly reset the context truncation tracking state
-- Hid the "Welcome to GitHub Copilot CLI" welcome message on session resumption and `/clear` for a cleaner look
+- Hid the "Welcome to DAVCoding CLI" welcome message on session resumption and `/clear` for a cleaner look
 - Improved the alignment of tables where the scrollbar is present
 - Improved the output of `--help` by making it more concise
 - Added a prompt for users who launch with `--screen-reader` to persistently save this preference
@@ -1630,18 +1630,18 @@ To commemorate GitHub Copilot CLI reaching general availability last week, we're
 - Improved slash command input by showing argument hints in the input box
 - Improved the display of the interface in windows less than 80 columns wide
 - Reduced the number of colors and improved the spacing of Markdown rendering
-- Added a warning when attempting to use proxy support in an environment where it won't work (Node <24, required environment variables not set) (A more permanent fix for https://github.com/github/copilot-cli/issues/41 is coming ~tomorrow)
+- Added a warning when attempting to use proxy support in an environment where it won't work (Node <24, required environment variables not set) (A more permanent fix for https://github.com/cptleftnut/DAVCoding/issues/41 is coming ~tomorrow)
 - Updated the context truncation message's color from an error color to a warning color
-- Fixed a bug where `copilot` logs might not have been properly created on Windows
-- Fixed a bug where Powershell users with custom profiles might have had issues running commands (Fixes https://github.com/github/copilot-cli/issues/196)
-- Fixed a bug where prompts were truncated after pasting and other edge cases (Fixes https://github.com/github/copilot-cli/issues/208, https://github.com/github/copilot-cli/issues/218)
-- Fixed a bug where users would see a login prompt on startup despite being logged in (fixes https://github.com/github/copilot-cli/issues/202)
-- Fixed a bug where some SSH users in certain environments were unable to get the OAuth login link and had their processes hang trying to open a browser (fixes https://github.com/github/copilot-cli/issues/89)
+- Fixed a bug where `davcoding` logs might not have been properly created on Windows
+- Fixed a bug where Powershell users with custom profiles might have had issues running commands (Fixes https://github.com/cptleftnut/DAVCoding/issues/196)
+- Fixed a bug where prompts were truncated after pasting and other edge cases (Fixes https://github.com/cptleftnut/DAVCoding/issues/208, https://github.com/cptleftnut/DAVCoding/issues/218)
+- Fixed a bug where users would see a login prompt on startup despite being logged in (fixes https://github.com/cptleftnut/DAVCoding/issues/202)
+- Fixed a bug where some SSH users in certain environments were unable to get the OAuth login link and had their processes hang trying to open a browser (fixes https://github.com/cptleftnut/DAVCoding/issues/89)
 
 ## 0.0.334 - 2025-10-03
 
 - Improved the experience of pasting large content: when pasting more than 10 lines, it's displayed as a compact token like `[Paste #1 - 15 lines]` instead of flooding the terminal.
-- Added a warning when conversation context approaches ≤20% remaining of the model's limit that truncation will soon occur. At this point, we recommend you begin a new session (improves https://github.com/github/copilot-cli/issues/29)
+- Added a warning when conversation context approaches ≤20% remaining of the model's limit that truncation will soon occur. At this point, we recommend you begin a new session (improves https://github.com/cptleftnut/DAVCoding/issues/29)
 - Removed the on-exit usage stats from the persisted session history
 - Added the current version to startup logs to aid in bug reporting
 - Removed cycling through TAB autocomplete items if an argument is present. This prevents running `/cwd /path/to/whatever`, hitting `TAB`, then seeing `/clear` autocomplete
@@ -1649,30 +1649,30 @@ To commemorate GitHub Copilot CLI reaching general availability last week, we're
 ## 0.0.333 - 2025-10-02
 
 - Added image support! `@`-mention files to add them as input to the model.
-- Improved proxy support for users on Node.JS v24+. See [this comment](https://github.com/github/copilot-cli/issues/41#issuecomment-3362444262) for more details (Fixes https://github.com/github/copilot-cli/issues/41)
-- Added support for directly executing shell commands and bypassing the model by prepending input with `!` (fixes https://github.com/github/copilot-cli/issues/186, https://github.com/github/copilot-cli/issues/12)
-- Added `/usage` slash command to provide stats about Premium request usage, session time, code changes, and per-model token use. This information is also printed at the conclusion of a session (Fixes https://github.com/github/copilot-cli/issues/27, https://github.com/github/copilot-cli/issues/121)
+- Improved proxy support for users on Node.JS v24+. See [this comment](https://github.com/cptleftnut/DAVCoding/issues/41#issuecomment-3362444262) for more details (Fixes https://github.com/cptleftnut/DAVCoding/issues/41)
+- Added support for directly executing shell commands and bypassing the model by prepending input with `!` (fixes https://github.com/cptleftnut/DAVCoding/issues/186, https://github.com/cptleftnut/DAVCoding/issues/12)
+- Added `/usage` slash command to provide stats about Premium request usage, session time, code changes, and per-model token use. This information is also printed at the conclusion of a session (Fixes https://github.com/cptleftnut/DAVCoding/issues/27, https://github.com/cptleftnut/DAVCoding/issues/121)
 - Improved `--screen-reader` mode by replacing icons in the timeline with informative labels
 - Added a `--continue` flag to resume the most recently closed session
-- Updated the `/clear` command to properly clear old timeline entries/session information (Fixes https://github.com/github/copilot-cli/issues/170)
+- Updated the `/clear` command to properly clear old timeline entries/session information (Fixes https://github.com/cptleftnut/DAVCoding/issues/170)
 
 ## 0.0.332 - 2025-10-01
 
-- Switched to using per-subscription Copilot API endpoints in accordance with [GitHub's docs](https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-access/manage-network-access) (fixes https://github.com/github/copilot-cli/issues/76)
-- Fixed a bug where `/user [list | show | switch]` did not include users signed in from all authentication modes (fixes https://github.com/github/copilot-cli/issues/58)
+- Switched to using per-subscription DAVCoding API endpoints in accordance with [GitHub's docs](https://docs.github.com/en/davcoding/how-tos/administer-davcoding/manage-for-enterprise/manage-access/manage-network-access) (fixes https://github.com/cptleftnut/DAVCoding/issues/76)
+- Fixed a bug where `/user [list | show | switch]` did not include users signed in from all authentication modes (fixes https://github.com/cptleftnut/DAVCoding/issues/58)
 - Fixed a bug where switching to another user with `/user switch` did not take effect in the GitHub MCP server
 - Improved the screenreader experience by disabling the scrollbar in the `@` file picker, the `--resume` session picker, and the `/` command picker
 - Improved the polish of the scrollbar container (increased the width, reduced the opacity of the gutter)
 - Minor visual improvements to the input area (moved the current model indicator to the right so it's not cramped with the CWD, improved the positioning of the file picker's "indexing" indicator, improved hint formatting in completion menus)
 - Improved Markdown legibility by excluding `#` prefixes in headings
-- Improved how we extract paths from shell commands for permission handling (might fix https://github.com/github/copilot-cli/issues/159, https://github.com/github/copilot-cli/issues/67)
+- Improved how we extract paths from shell commands for permission handling (might fix https://github.com/cptleftnut/DAVCoding/issues/159, https://github.com/cptleftnut/DAVCoding/issues/67)
 
 ## 0.0.331 - 2025-10-01
 
 - Improved the information density of file read/edit timeline events
 - Fixed an inaccuracy in the `--banner` help text; it previously implied that it would persistently change the configuration to always show the startup banner
-- Improved the `/model`s list to ensure that a user only sees models they have access to use -- previously, if a user tries to use a model they do not have access to (because of their Copilot plan, their geographic region, etc), they received a `model_not_supported` error. This should prevent that by not even showing such models as options in the list (Fixes https://github.com/github/copilot-cli/issues/112, https://github.com/github/copilot-cli/issues/85, https://github.com/github/copilot-cli/issues/40)
-- Fixed a bug where pressing down arrow in a multi-line prompt would wrap around to the first line (This is on the way to implementing https://github.com/github/copilot-cli/issues/14)
+- Improved the `/model`s list to ensure that a user only sees models they have access to use -- previously, if a user tries to use a model they do not have access to (because of their DAVCoding plan, their geographic region, etc), they received a `model_not_supported` error. This should prevent that by not even showing such models as options in the list (Fixes https://github.com/cptleftnut/DAVCoding/issues/112, https://github.com/cptleftnut/DAVCoding/issues/85, https://github.com/cptleftnut/DAVCoding/issues/40)
+- Fixed a bug where pressing down arrow in a multi-line prompt would wrap around to the first line (This is on the way to implementing https://github.com/cptleftnut/DAVCoding/issues/14)
 - Added a scrollbar to the `@` file mentioning picker and increased the size of the active buffer to 10 items
 - Improved the experience of writing prompts while the agent is running -- up/down arrows will now correctly navigate between options in the `@` and `/` menus
 
@@ -1682,22 +1682,22 @@ To commemorate GitHub Copilot CLI reaching general availability last week, we're
 
 ## 0.0.329 - 2025-09-29
 
-- Added support for [Claude Sonnet 4.5](https://github.blog/changelog/2025-09-29-anthropic-claude-sonnet-4-5-is-in-public-preview-for-github-copilot/) and made it the default model
-- Added `/model` slash command to easily change the model (fixes https://github.com/github/copilot-cli/issues/10)
+- Added support for [Claude Sonnet 4.5](https://github.blog/changelog/2025-09-29-anthropic-claude-sonnet-4-5-is-in-public-preview-for-github-davcoding/) and made it the default model
+- Added `/model` slash command to easily change the model (fixes https://github.com/cptleftnut/DAVCoding/issues/10)
     - `/model` will open a picker to change the model
     - `/model <model>` will set the model to the parameter provided
-- Added display of currently selected model above the input text box (Addresses feedback in https://github.com/github/copilot-cli/issues/120, https://github.com/github/copilot-cli/issues/108, )
-- Improved error messages when users provide incorrect command-line arguments. (Addresses feedback of the discoverability of non-interactive mode from https://github.com/github/copilot-cli/issues/96)
+- Added display of currently selected model above the input text box (Addresses feedback in https://github.com/cptleftnut/DAVCoding/issues/120, https://github.com/cptleftnut/DAVCoding/issues/108, )
+- Improved error messages when users provide incorrect command-line arguments. (Addresses feedback of the discoverability of non-interactive mode from https://github.com/cptleftnut/DAVCoding/issues/96)
 - Changed the behavior of `Ctrl+r` to expand only recent timeline items. After running `Ctrl+r`, you can use `Ctrl+e` to expand all
 - Improved word motion logic to better detect newlines: using word motion keys will now correctly move to the first word on a line
-- Improved the handling of multi-line inputs in the input box: the input text box is scrollable, limited to 10 lines. Long prompts won't take up the whole screen anymore! (This is on the way to implementing https://github.com/github/copilot-cli/issues/14)
+- Improved the handling of multi-line inputs in the input box: the input text box is scrollable, limited to 10 lines. Long prompts won't take up the whole screen anymore! (This is on the way to implementing https://github.com/cptleftnut/DAVCoding/issues/14)
 - Removed the left and right borders from the input box. This makes it easier to copy text out of it!
 - Added glob matching to shell rules. When using `--allow-tool` and `--deny-tool`, you can now specify things like `shell(npm run test:*)` to match any shell commands beginning with `npm run test`
-- Improved the `copilot --resume` interface with relative time display, session message count, (Fixes https://github.com/github/copilot-cli/issues/97)
+- Improved the `davcoding --resume` interface with relative time display, session message count, (Fixes https://github.com/cptleftnut/DAVCoding/issues/97)
 
 ## 0.0.328 - 2025-09-26
 
-- Improved error message received when Copilot CLI is blocked by organization policy (fixes https://github.com/github/copilot-cli/issues/18 )
-- Improved the error message received when using a PAT that is missing the "Copilot Requests" permission (fixes https://github.com/github/copilot-cli/issues/46 )
+- Improved error message received when DAVCoding CLI is blocked by organization policy (fixes https://github.com/cptleftnut/DAVCoding/issues/18 )
+- Improved the error message received when using a PAT that is missing the "DAVCoding Requests" permission (fixes https://github.com/cptleftnut/DAVCoding/issues/46 )
 - Improved the output of `/user list` to make it clearer which is the current user
 - Improved PowerShell parsing of `ForEach-Object` and detection of command name expressions (e.g.,`& $someCommand`)
