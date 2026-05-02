@@ -1,0 +1,9 @@
+// DAVCoding Android - Remix of Termux terminal engine + DAVCoding AI features
+rootProject.name = "DAVCoding"
+
+include ':android-app'
+project(':android-app').projectDir = new File('android-app')
+
+include ':termux-shared'
+include ':terminal-emulator'
+include ':terminal-view'
